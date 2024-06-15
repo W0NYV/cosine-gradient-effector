@@ -73,11 +73,8 @@ Shader "Hidden/CosineGradient"
 
                 float4 cos = float4(0, 0, 0, 1);
 
-                if (brightness != 0.0)
-                {
-                    cos = cosine_gradient(brightness, _Phase, _Amplitude, _Frequency, _Offset);
-                    cos = float4(cos.rgb, 1.0);
-                }
+                cos = cosine_gradient(brightness, _Phase, _Amplitude, _Frequency, _Offset);
+                cos = float4(cos.rgb, 1.0);
                 
                 return lerp(col, cos, _ApplyValue);
             }
